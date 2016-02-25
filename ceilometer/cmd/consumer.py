@@ -21,8 +21,5 @@ from ceilometer import service
 
 def main():
     service.prepare_service()
-    launcher = os_service.ProcessLauncher()
-    launcher.launch_service(
-        consumer.ConsumerService(),
-        workers=service.get_workers('collector'))
-    launcher.wait()
+    os_service.launch(consumer.ConsumerService(),
+                      workers=service.get_workers('collector')).wait()
