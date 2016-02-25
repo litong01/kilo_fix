@@ -1,0 +1,8 @@
+description "OpenStack Ceilometer consumer service"
+
+start on stopped rc RUNLEVEL=[2345]
+stop on runlevel [S016]
+
+respawn
+
+exec su -s /bin/sh -c "exec /usr/bin/ceilometer-consumer --config-file /etc/ceilometer/ceilometer-consumer.conf --logfile /var/log/ceilometer/consumer.log" ceilometer
