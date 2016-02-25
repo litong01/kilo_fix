@@ -15,12 +15,12 @@
 import json
 
 from oslo.config import cfg
-from ceilometer.openstack.common import log
 import requests
 
 from ceilometer import dispatcher
-from ceilometer.openstack.common.gettextutils import _
-from ceilometer.openstack.common.gettextutils import _LE
+from ceilometer.i18n import _, _LE
+from ceilometer.openstack.common import log
+from ceilometer.publisher import utils as publisher_utils
 
 LOG = log.getLogger(__name__)
 
